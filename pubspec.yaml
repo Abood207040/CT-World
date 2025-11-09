@@ -1,0 +1,40 @@
+name: ct_world
+description: "CT WORLD - A Flutter app for CT Scan learning and info."
+
+publish_to: 'none' # Prevent publishing to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/logo.png
+    - assets/logo.jpg
+    - assets/cases.png
+    - assets/protechtion.png
+    - assets/protocol.png
+    - assets/usage.png
+    - assets/defination.png
+    - assets/risks.png
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/ct-scan.ico"
+  min_sdk_android: 21
