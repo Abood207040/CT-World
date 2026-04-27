@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/app_screen_background.dart';
 import '../widgets/fade_in_page.dart';
 
 class ProtectionScreen extends StatelessWidget {
@@ -7,11 +8,10 @@ class ProtectionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: FadeInPage(
         child: Container(
-          decoration: const BoxDecoration(
-           color: Colors.black,
-          ),
+          decoration: AppScreenBackground.decoration,
           child: SafeArea(
             child: Column(
               children: [

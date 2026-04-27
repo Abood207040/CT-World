@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'screens/splash_screen.dart';
 import 'screens/home_screen.dart';
-import 'screens/definition_screen.dart';
-import 'screens/usage_screen.dart';
-import 'screens/risks_screen.dart';
-import 'screens/protocol_screen.dart';
-import 'screens/cases_screen.dart';
+import 'screens/about_ct.dart';
+import 'screens/about_us.dart';
+import 'screens/ct-anatomey_screen.dart';
+import 'screens/ct_examination.dart';
+import 'screens/refrences_screen.dart';
 import 'screens/protection_screen.dart';
 
 void main() {
@@ -24,8 +23,8 @@ class CTWorldApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.black,
         primaryColor: Colors.redAccent,
       ),
+      initialRoute: '/home',
       routes: {
-        '/': (_) => const SplashScreen(),
         '/home': (_) => const HomeScreen(),
         '/definition': (_) => const DefinitionScreen(),
         '/usage': (_) => const UsageScreen(),

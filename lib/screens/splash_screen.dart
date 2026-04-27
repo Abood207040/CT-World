@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ct_world/widgets/app_screen_background.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -19,9 +20,14 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: Center(
-        child: Image.asset('assets/logo.png', width: 180),
+      backgroundColor: Colors.transparent,
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: AppScreenBackground.decoration,
+        child: Center(
+          child: Image.asset('assets/logo.png', width: 180),
+        ),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ct_world/widgets/app_screen_background.dart';
 
 class SearchScreen extends StatefulWidget {
   final bool showBackButton;
@@ -10,35 +11,43 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   final TextEditingController _controller = TextEditingController();
-  final List<Map<String, String>> allSections = const [
-    {'title': 'Definition', 'route': '/definition'},
-    {'title': 'Usage', 'route': '/usage'},
-    {'title': 'Risks', 'route': '/risks'},
-    {'title': 'Protocol', 'route': '/protocol'},
-    {'title': 'Cases', 'route': '/cases'},
-    {'title': 'Protection', 'route': '/protection'},
+
+  // Screens with display name and route
+  final List<Map<String, String>> allScreens = [
+    {'name': 'About CT', 'route': '/definition'},
+    {'name': 'About Us', 'route': '/usage'},
+    {'name': 'CT Anatomy', 'route': '/risks'},
+    {'name': 'CT Examination', 'route': '/protocol'},
+    {'name': 'References', 'route': '/cases'},
+ 
   ];
 
-  List<Map<String, String>> filteredSections = [];
-  bool _isSearching = false;
+  List<Map<String, String>> searchResults = [];
 
   void _onSearch(String query) {
-    setState(() {
-      _isSearching = query.isNotEmpty;
-      filteredSections = allSections
-          .where((section) =>
-              section['title']!.toLowerCase().contains(query.toLowerCase()))
-          .toList();
-    });
+    if (query.isEmpty) {
+      setState(() => searchResults = []); // don't show results if empty
+    } else {
+      setState(() {
+        searchResults = allScreens
+            .where((screen) =>
+                (screen['name'] ?? '')
+                    .toLowerCase()
+                    .contains(query.toLowerCase()))
+            .toList();
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
-        backgroundColor: Colors.black,
         elevation: 0,
+        scrolledUnderElevation: 0,
+        backgroundColor: Colors.transparent,
+        flexibleSpace: Container(decoration: AppScreenBackground.decoration),
         leading: widget.showBackButton
             ? IconButton(
                 icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
@@ -55,16 +64,20 @@ class _SearchScreenState extends State<SearchScreen> {
         ),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: AppScreenBackground.decoration,
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
           children: [
             // 🔍 Search Bar
             TextField(
               controller: _controller,
               onChanged: _onSearch,
               decoration: InputDecoration(
-                hintText: 'Search topics (e.g. Risks, Usage...)',
+                hintText: 'Search screens (e.g., About CT, Protocol...)',
                 prefixIcon: const Icon(Icons.search, color: Colors.white),
                 filled: true,
                 fillColor: Colors.redAccent.withOpacity(0.3),
@@ -76,62 +89,45 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
               style: const TextStyle(color: Colors.white),
             ),
-
             const SizedBox(height: 20),
 
-            // 🔽 Search results (only visible when typing)
-            if (_isSearching)
+            // 🔽 Only show results if user typed something
+            if (searchResults.isNotEmpty)
               Expanded(
-                child: filteredSections.isEmpty
-                    ? const Center(
-                        child: Text(
-                          "No results found",
-                          style: TextStyle(color: Colors.white70, fontSize: 18),
+                child: ListView.builder(
+                  itemCount: searchResults.length,
+                  itemBuilder: (context, index) {
+                    final screen = searchResults[index];
+                    final name = screen['name'] ?? 'Unknown';
+                    final route = screen['route'] ?? '/';
+                    return GestureDetector(
+                      onTap: () => Navigator.pushNamed(context, route),
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 12),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 20),
+                        decoration: BoxDecoration(
+                          color: Colors.redAccent.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: Colors.redAccent.withOpacity(0.4),
+                          ),
                         ),
-                      )
-                    : ListView.builder(
-                        itemCount: filteredSections.length,
-                        itemBuilder: (context, index) {
-                          final section = filteredSections[index];
-                          return GestureDetector(
-                            onTap: () =>
-                                Navigator.pushNamed(context, section['route']!),
-                            child: Container(
-                              margin: const EdgeInsets.only(bottom: 12),
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 16, vertical: 20),
-                              decoration: BoxDecoration(
-                                color: Colors.redAccent.withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(12),
-                                border: Border.all(
-                                  color: Colors.redAccent.withOpacity(0.4),
-                                ),
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    section['title']!,
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  const Icon(
-                                    Icons.arrow_forward_ios,
-                                    color: Colors.white,
-                                    size: 20,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          );
-                        },
+                        child: Text(
+                          name,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
                       ),
+                    );
+                  },
+                ),
               ),
           ],
+          ),
         ),
       ),
     );

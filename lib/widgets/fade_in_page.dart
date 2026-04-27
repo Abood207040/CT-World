@@ -2,7 +2,15 @@ import 'package:flutter/material.dart';
 
 class FadeInPage extends StatefulWidget {
   final Widget child;
-  const FadeInPage({super.key, required this.child});
+  final Duration duration;
+  final Curve curve;
+
+  const FadeInPage({
+    super.key,
+    required this.child,
+    this.duration = const Duration(milliseconds: 250),
+    this.curve = Curves.easeOut,
+  });
 
   @override
   State<FadeInPage> createState() => _FadeInPageState();
@@ -16,9 +24,8 @@ class _FadeInPageState extends State<FadeInPage>
   @override
   void initState() {
     super.initState();
-    _controller =
-        AnimationController(vsync: this, duration: const Duration(seconds: 1));
-    _fadeAnimation = CurvedAnimation(parent: _controller, curve: Curves.easeIn);
+    _controller = AnimationController(vsync: this, duration: widget.duration);
+    _fadeAnimation = CurvedAnimation(parent: _controller, curve: widget.curve);
     _controller.forward();
   }
 

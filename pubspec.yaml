@@ -13,6 +13,10 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.8
+  path_provider: ^2.1.5
+  gal: ^2.3.2
+  http: ^1.6.0
+  shared_preferences: ^2.5.4
 
 dev_dependencies:
   flutter_test:
@@ -25,16 +29,219 @@ flutter:
 
   assets:
     - assets/logo.png
-    - assets/logo.jpg
     - assets/cases.png
     - assets/protechtion.png
     - assets/protocol.png
     - assets/usage.png
     - assets/defination.png
     - assets/risks.png
+    - assets/brain/brain1.png
+    - assets/brain/brain2.png
+    - assets/brain/brain3.png 
+    - assets/brain/brain4.png
+    - assets/brain/brain5.png
+    - assets/brain/brain6.png
+    - assets/brain/brain7.png
+    - assets/brain/brain8.png
+    - assets/brain/brain9.png
+    - assets/brain/brain10.png
+    - assets/brain/brain11.png
+    - assets/facialbone/facialbone1.jpg
+    - assets/facialbone/facialbone2.jpg
+    - assets/facialbone/facialbone3.jpg
+    - assets/facialbone/facialbone4.jpg
+    - assets/facialbone/facialbone5.jpg
+    - assets/facialbone/facialbone6.jpg
+    - assets/facialbone/facialbone7.jpg
+    - assets/facialbone/facialbone8.jpg
+    - assets/facialbone/facialbone9.jpg   
+    - assets/facialbone/facialbone10.jpg
+    - assets/facialbone/facialbone11.jpg 
+    - assets/facialbone/facialbone12.jpg
+    - assets/facialbone/facialbone13.jpg
+    - assets/facialbone/facialbone14.jpg
+    - assets/facialbone/facialbone15.jpg  
+    - assets/facialbone/facialbone16.jpg
+    - assets/paranasalsinuses/paranasalsinuses1.jpg
+    - assets/paranasalsinuses/paranasalsinuses2.jpg
+    - assets/paranasalsinuses/paranasalsinuses3.jpg
+    - assets/paranasalsinuses/paranasalsinuses4.jpg
+    - assets/paranasalsinuses/paranasalsinuses5.jpg
+    - assets/paranasalsinuses/paranasalsinuses6.jpg
+    - assets/paranasalsinuses/paranasalsinuses7.jpg
+    - assets/paranasalsinuses/paranasalsinuses8.jpg
+    - assets/neck/neck1.png
+    - assets/neck/neck2.png
+    - assets/neck/neck3.png
+    - assets/neck/neck4.png
+    - assets/neck/neck5.png
+    - assets/neck/neck6.png
+    - assets/neck/neck7.png
+    - assets/neck/neck8.png
+    - assets/neck/neck9.png
+    - assets/neck/neck10.png
+    - assets/thorax/thorax1.png
+    - assets/thorax/thorax2.png
+    - assets/thorax/thorax3.png
+    - assets/thorax/thorax4.png
+    - assets/thorax/thorax5.png
+    - assets/thorax/thorax6.png
+    - assets/thorax/thorax7.png
+    - assets/thorax/thorax8.png
+    - assets/thorax/thorax9.png
+    - assets/thorax/thorax10.png
+    - assets/thorax/thorax11.png
+    - assets/thorax/thorax12.png
+    - assets/thorax/thorax13.png
+    - assets/thorax/thorax14.png
+    - assets/thorax/thorax15.png
+    - assets/thorax/thorax16.png
+    - assets/thorax/thorax17.png
+    - assets/abdomen/abdomen1.png
+    - assets/abdomen/abdomen2.png
+    - assets/abdomen/abdomen3.png
+    - assets/abdomen/abdomen4.png
+    - assets/abdomen/abdomen5.png
+    - assets/abdomen/abdomen6.png
+    - assets/abdomen/abdomen7.png
+    - assets/abdomen/abdomen8.png
+    - assets/abdomen/abdomen9.png
+    - assets/abdomen/abdomen10.png
+    - assets/abdomen/abdomen11.png
+    - assets/abdomen/abdomen12.png
+    - assets/malepelvis/malepelvis1.png
+    - assets/malepelvis/malepelvis2.png
+    - assets/malepelvis/malepelvis3.png
+    - assets/malepelvis/malepelvis4.png
+    - assets/malepelvis/malepelvis5.png
+    - assets/malepelvis/malepelvis6.png
+    - assets/malepelvis/malepelvis7.png
+    - assets/malepelvis/malepelvis8.png
+    - assets/malepelvis/malepelvis9.png
+    - assets/malepelvis/malepelvis10.png
+    - assets/malepelvis/malepelvis11.png
+    - assets/malepelvis/malepelvis12.png
+    - assets/femalepelvis/malepelvis1.png
+    - assets/femalepelvis/malepelvis2.png
+    - assets/femalepelvis/malepelvis3.png
+    - assets/femalepelvis/malepelvis4.png
+    - assets/femalepelvis/malepelvis5.png
+    - assets/femalepelvis/malepelvis6.png
+    - assets/femalepelvis/malepelvis7.png
+    - assets/femalepelvis/malepelvis8.png
+    - assets/femalepelvis/malepelvis9.png
+    - assets/shoulder/shoulder1.jpg
+    - assets/shoulder/shoulder2.jpg
+    - assets/shoulder/shoulder3.jpg
+    - assets/shoulder/shoulder4.jpg
+    - assets/shoulder/shoulder5.jpg
+    - assets/elbow/elbow1.jpg
+    - assets/elbow/elbow2.jpg
+    - assets/elbow/elbow3.jpg
+    - assets/elbow/elbow4.jpg
+    - assets/elbow/elbow5.jpg
+    - assets/elbow/elbow6.jpg
+    - assets/elbow/elbow7.jpg
+    - assets/elbow/elbow8.jpg
+    - assets/elbow/elbow9.jpg
+    - assets/wrist/wrist1.jpg
+    - assets/wrist/wrist2.jpg
+    - assets/wrist/wrist3.jpg
+    - assets/wrist/wrist4.jpg
+    - assets/wrist/wrist5.jpg
+    - assets/hip/hip1.jpg
+    - assets/hip/hip2.jpg
+    - assets/hip/hip3.jpg
+    - assets/hip/hip4.jpg
+    - assets/hip/hip5.jpg
+    - assets/hip/hip6.jpg
+    - assets/knee/knee1.jpg
+    - assets/knee/knee2.jpg
+    - assets/knee/knee3.jpg
+    - assets/knee/knee4.jpg
+    - assets/knee/knee5.jpg
+    - assets/knee/knee6.jpg
+    - assets/knee/knee7.jpg
+    - assets/knee/knee8.jpg
+    - assets/knee/knee9.jpg
+    - assets/ankle/ankle1.jpg
+    - assets/ankle/ankle2.jpg
+    - assets/ankle/ankle3.jpg
+    - assets/ankle/ankle4.jpg
+    - assets/spine/spine1.jpeg
+    - assets/spine/spine2.jpeg
+    - assets/spine/spine3.jpeg
+    - assets/spine/spine4.jpeg
+    - assets/spine/spine5.jpeg
+    - assets/spine/spine6.jpeg
+    - assets/spine/spine7.jpeg
+    - assets/aboutct/computersystem.jpg
+    - assets/aboutct/gantry.jpg
+    - assets/aboutct/detectors1.png
+    - assets/aboutct/detectors2.png
+    - assets/aboutct/detectors3.png
+    - assets/aboutct/coolingsystem.png
+    - assets/wordimgs/brain.png
+    - assets/wordimgs/skullbase.png
+    - assets/wordimgs/sellaturcic.png
+    - assets/wordimgs/orbits.png
+    - assets/wordimgs/facialbone1.png
+    - assets/wordimgs/facialbone2.png
+    - assets/wordimgs/paranasalsinuses.jpg
+    - assets/wordimgs/temporalbone.jpg
+    - assets/wordimgs/neck.jpg
+    - assets/wordimgs/routinechest.jpg
+    - assets/wordimgs/hirctchest.jpg
+    - assets/wordimgs/abdomenpelvisroutine.png
+    - assets/wordimgs/triphasic.png
+    - assets/wordimgs/urography.png
+    - assets/wordimgs/bonypelvis.jpg
+    - assets/wordimgs/cervical1.png
+    - assets/wordimgs/cervical2.jpg
+    - assets/wordimgs/thoracic.png
+    
+    - assets/wordimgs/lumbar.png
+    - assets/wordimgs/shoulder.jpg
+    - assets/wordimgs/elbow1.jpg
+    - assets/wordimgs/elbow2.png
+    - assets/wordimgs/shoulder2.png
+    - assets/wordimgs/wrist1.jpg
+    - assets/wordimgs/wrist2.png
+    - assets/wordimgs/hip.jpg
+    - assets/wordimgs/hip2.png
+    - assets/wordimgs/knee.png
+    - assets/wordimgs/knee2.jpg
+    - assets/wordimgs/ankle.jpg
+    - assets/wordimgs/ankle2.png
+    - assets/wordimgs/orbits2.jpg
+    - assets/ABOUT CT.png
+    - assets/CT ANATOMY.png
+    - assets/CT EXAMINATIONS.png
+    - assets/REFERENCES.png
+    - assets/ABOUT US.png
+    - assets/icons/head.png
+    - assets/icons/neck.png
+    - assets/icons/thorax.png
+    - assets/icons/abdomen.png
+    - assets/icons/pelvis.png
+    - assets/icons/limb_joints.png
+    - assets/icons/spine.png
+    - assets/icons/header_ct_anatomy.png
+    - assets/second.jpeg
+    
+  fonts:
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo/static/Cairo-Regular.ttf
+        - asset: assets/fonts/Cairo/static/Cairo-Bold.ttf
+          weight: 700
+
 
 flutter_launcher_icons:
   android: true
-  ios: true
-  image_path: "assets/ct-scan.ico"
+  ios: false
+  image_path: "assets/icon.ico"
+  adaptive_icon_background: "#000000"
+  adaptive_icon_foreground: "assets/kogo.png"
+  adaptive_icon_foreground_inset: 60
   min_sdk_android: 21
