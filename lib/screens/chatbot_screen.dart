@@ -41,7 +41,7 @@ class _CtChatbotScreenState extends State<CtChatbotScreen>
   AppLifecycleState? _lastAppLifecycleState;
 
   // Replace with your NEW Gemini API key.
-  static const String _apiKey = 'AIzaSyAg2cUMxnP3YF9kW4B5sa65qJpGjVQrUrs';
+  static const String _apiKey = 'placeholder';
 
   late final _GeminiCtService _geminiService = _GeminiCtService(
     apiKey: _apiKey,
